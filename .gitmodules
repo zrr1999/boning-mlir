@@ -1,0 +1,4 @@
+[submodule "3rdparty/llvm"]
+	path = 3rdparty/llvm
+	url = https://github.com/llvm/llvm-project.git
+	branch = main
