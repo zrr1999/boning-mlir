@@ -22,13 +22,13 @@ from copy import deepcopy
 
 
 class IRNode(BaseModel):
-    name: str | None
+    name: str | None=None
 
 class LowIRNode(IRNode):
     pass
 
 class LoadNode(LowIRNode):
-    pass
+    var: str
 
 class StoreNode(LowIRNode):
     pass
@@ -65,9 +65,9 @@ class IRGraph(BaseModel):
             node.name
             
 
-def fn(a, b):
+def fn(self, a, b):
     x = a + b
-    x = x + a
+    x = self.add(x, a)
     x = x / 2.0
     # if x.sum() < 0:
     #     return x * -1.0
@@ -80,6 +80,7 @@ def compile(
     pass
 
 
+stack: list[IRNode] = []
 class InstructionTranslator:
     # def __init__(
     #     self,
@@ -94,8 +95,12 @@ class InstructionTranslator:
     #     export,
     # ):
     #     pass
-    
+    def LOAD_METHOD(self, inst):
+        pass
+    def CALL_METHOD(self, inst):
+        pass
     def LOAD_FAST(self, inst):
+        # stack.append(LoadNode(var =inst.argval))
         if inst.argval not in name2node:
             var = Placeholder(name=inst.argval)
             name2node.update({inst.argval: var})
@@ -144,9 +149,6 @@ class InstructionTranslator:
     
 
 graph = IRGraph(nodes=[])
-
-
-stack: list[IRNode] = []
 name2node: dict[str, IRNode] = {}
 translator = InstructionTranslator()
 for inst in dis.get_instructions(fn):
