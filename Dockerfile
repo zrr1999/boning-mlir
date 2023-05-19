@@ -1,12 +1,12 @@
-FROM zrr-base:latest
+FROM zrr1999/zrr-base:latest
 
-RUN apt install -y cmake ninja-build gdb
-RUN curl -fsSL https://xmake.io/shget.text | zsh
-RUN /home/linuxbrew/.linuxbrew/bin/brew install gitui
-RUN apt install -y unzip
+RUN apt install -y cmake ninja-build gdb unzip python3-pip
 RUN apt install -y dotnet-sdk-6.0
-RUN apt install -y python3-pip
+RUN curl -fsSL https://xmake.io/shget.text | zsh
+RUN curl https://raw.githubusercontent.com/mitsuhiko/rye/main/scripts/install.sh | bash
+RUN brew install gitui typst
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+# RUN pip install paddlepaddle
 
 WORKDIR "/workspace"
 EXPOSE 22

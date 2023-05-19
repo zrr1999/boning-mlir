@@ -15,4 +15,5 @@ void BoningDialect::initialize() {
 #define GET_OP_LIST
 #include "Boning/BoningOps.cpp.inc"
       >();
+  registerTypes();
 }

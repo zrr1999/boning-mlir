@@ -39,4 +39,16 @@ def BoningSwitchCallBarFoo: Pass<"boning-switch-call-bar-foo", "::mlir::ModuleOp
   }];
 }
 
+def BoningSwitchBarFooOp: Pass<"boning-switch-bar-foo-op", "::mlir::ModuleOp"> {
+  let summary = "Switches the call of a FuncOp named `bar` to `foo` and folds.";
+  let description = [{
+    Switches the call of a FuncOp named `bar` to `foo` and folds.
+    ```
+    func.call @bar() : () -> i32
+    // Gets transformed to:
+    func.call @foo() : () -> i32
+    ```
+  }];
+}
+
 #endif // BONING_PASS

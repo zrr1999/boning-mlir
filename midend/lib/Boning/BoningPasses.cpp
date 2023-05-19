@@ -13,9 +13,11 @@
 #include "mlir/Transforms/GreedyPatternRewriteDriver.h"
 
 #include "Boning/BoningPasses.h"
+#include <mlir/Support/LogicalResult.h>
 
 namespace mlir::boning {
 #define GEN_PASS_DEF_BONINGSWITCHBARFOO
+#define GEN_PASS_DEF_BONINGSWITCHBARFOOOP
 #define GEN_PASS_DEF_BONINGSWITCHCALLBARFOO
 #include "Boning/BoningPasses.h.inc"
 
@@ -69,6 +71,32 @@ public:
   void runOnOperation() final {
     RewritePatternSet patterns(&getContext());
     patterns.add<BoningSwitchCallBarFooRewriter>(&getContext());
+    FrozenRewritePatternSet patternSet(std::move(patterns));
+    if (failed(applyPatternsAndFoldGreedily(getOperation(), patternSet)))
+      signalPassFailure();
+  }
+};
+
+class BoningSwitchBarFooOpRewriter : public OpRewritePattern<boning::FooOp> {
+public:
+  using OpRewritePattern<boning::FooOp>::OpRewritePattern;
+  LogicalResult matchAndRewrite(boning::FooOp op,
+                                PatternRewriter &rewriter) const final {
+  auto loc = op->getLoc();
+    boning::BarOp new_op=rewriter.create<typename boning::BarOp>(loc, op.getInput());
+    rewriter.replaceAllUsesWith(op, new_op);
+      return success();
+  }
+};
+
+class BoningSwitchBarFooOp
+    : public impl::BoningSwitchBarFooOpBase<BoningSwitchBarFooOp> {
+public:
+  using impl::BoningSwitchBarFooOpBase<
+      BoningSwitchBarFooOp>::BoningSwitchBarFooOpBase;
+  void runOnOperation() final {
+    RewritePatternSet patterns(&getContext());
+    patterns.add<BoningSwitchBarFooOpRewriter>(&getContext());
     FrozenRewritePatternSet patternSet(std::move(patterns));
     if (failed(applyPatternsAndFoldGreedily(getOperation(), patternSet)))
       signalPassFailure();

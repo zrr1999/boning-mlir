@@ -14,6 +14,7 @@
 #include "mlir/IR/OpDefinition.h"
 #include "mlir/Interfaces/InferTypeOpInterface.h"
 #include "mlir/Interfaces/SideEffectInterfaces.h"
+#include "Boning/BoningTypes.h"
 
 #define GET_OP_CLASSES
 #include "Boning/BoningOps.h.inc"
