@@ -1,4 +1,3 @@
-#include "Boning/BoningPasses.h"
 #include "mlir/Dialect/Arith/IR/Arith.h"
 #include "mlir/Dialect/Func/IR/FuncOps.h"
 #include "mlir/IR/Dialect.h"
@@ -15,15 +14,15 @@
 #include "llvm/Support/ToolOutputFile.h"
 
 #include "Boning/BoningDialect.h"
+#include "Boning/BoningPasses.h"
 
 int main(int argc, char **argv) {
-  mlir::registerAllPasses();
-  mlir::boning::registerPasses();
-
   mlir::DialectRegistry registry;
   registerAllDialects(registry);
-
   registry.insert<mlir::boning::BoningDialect>();
+
+  mlir::registerAllPasses();
+  mlir::boning::registerPasses();
 
   return mlir::asMainReturnCode(
       mlir::MlirOptMain(argc, argv, "Boning optimizer driver\n", registry));
