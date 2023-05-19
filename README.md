@@ -16,10 +16,17 @@
 相比于 LaTeX，Typst 学习门槛更低，没有历史遗留问题，虽然在功能上有所欠缺，但是发展迅速，且对于普通文档并不构成太大问题。
 
 ## 贡献度计算方案
-最终的奖金分配和证书排序上会综合考虑代码贡献量，
+最终的奖金分配和证书排序上会综合考虑实际贡献量和竞赛分数贡献量。
+实际贡献量包括一切对竞赛排名相关的贡献，包括代码贡献，
+提出关键性建议，或者参与答辩等，具体分配方案待讨论。
 
 ## TODO
-利用 [IssueTools](https://github.com/zrr1999/IssueTools) 管理 tracking_issue
-
-
-
+- 利用 [IssueTools](https://github.com/zrr1999/IssueTools) 管理 issue 和 TODO
+- 添加 Python 支持
+- 实现 PyTorch 前端支持
+- x86 CPU 后端方言（或利用 llvm ir）
+- 添加单元测试机制及补充 CI 机制
+- ViT算法优化
+- 内存分配优化算法
+- 针对 Arm CPU（A53）和GPU（Mali）的技术调研
+- 方案报告
