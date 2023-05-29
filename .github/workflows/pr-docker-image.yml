@@ -3,7 +3,7 @@ name: Docker Image Build Test
 on:
   pull_request:
     paths:
-      - '**/Dockerfile'
+      - 'Dockerfile'
 jobs:
   build:
     runs-on: ubuntu-latest

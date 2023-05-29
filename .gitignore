@@ -1,7 +1,6 @@
 .idea/
 .vscode/
 localtools/
-3rdparty/
 build/
 .clangd
 **/__pycache__/
