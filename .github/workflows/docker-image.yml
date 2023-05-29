@@ -27,5 +27,5 @@ jobs:
         context: ./
         push: true
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/boning-mlir:$COMMIT_ID
+          ${{ secrets.DOCKERHUB_USERNAME }}/boning-mlir:${{ env.COMMIT_ID }}
           ${{ secrets.DOCKERHUB_USERNAME }}/boning-mlir:latest
