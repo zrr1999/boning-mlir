@@ -82,10 +82,11 @@ public:
   using OpRewritePattern<boning::FooOp>::OpRewritePattern;
   LogicalResult matchAndRewrite(boning::FooOp op,
                                 PatternRewriter &rewriter) const final {
-  auto loc = op->getLoc();
-    boning::BarOp new_op=rewriter.create<typename boning::BarOp>(loc, op.getInput());
+    auto loc = op->getLoc();
+    boning::BarOp new_op =
+        rewriter.create<typename boning::BarOp>(loc, op.getInput());
     rewriter.replaceAllUsesWith(op, new_op);
-      return success();
+    return success();
   }
 };
 

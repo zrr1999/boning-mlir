@@ -15,5 +15,3 @@ with builder.goto_block(builder.make_block(module.region)):
     builder.ret([adder], [builder.F64])
 
 print(mlirfile.dump())
-
-

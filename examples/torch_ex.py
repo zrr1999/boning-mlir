@@ -1,10 +1,11 @@
 import ast
 import dis
-import sys
 import inspect
+import sys
+
 import torch
-import torch.fx
 import torch._dynamo
+import torch.fx
 from torch.fx import symbolic_trace
 from torchvision.models import resnet18
 

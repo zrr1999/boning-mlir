@@ -23,11 +23,11 @@ int main(int argc, char **argv) {
 
   // TODO: Register standalone translations here.
   mlir::TranslateFromMLIRRegistration withdescription(
-    "option", "different from option",
-    [](mlir::Operation *op, llvm::raw_ostream &output) {
-      return mlir::LogicalResult::success();
-    },
-    [](mlir::DialectRegistry &a) {});
+      "option", "different from option",
+      [](mlir::Operation *op, llvm::raw_ostream &output) {
+        return mlir::LogicalResult::success();
+      },
+      [](mlir::DialectRegistry &a) {});
 
   return failed(
       mlir::mlirTranslateMain(argc, argv, "MLIR Translation Testing Tool"));

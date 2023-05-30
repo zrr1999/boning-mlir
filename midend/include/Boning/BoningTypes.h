@@ -6,12 +6,12 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef STANDALONE_STANDALONETYPES_H
-#define STANDALONE_STANDALONETYPES_H
+#ifndef BONING_BONINGTYPES_H
+#define BONING_BONINGTYPES_H
 
 #include "mlir/IR/BuiltinTypes.h"
 
 #define GET_TYPEDEF_CLASSES
 #include "Boning/BoningOpsTypes.h.inc"
 
-#endif // STANDALONE_STANDALONETYPES_H
+#endif // BONING_BONINGTYPES_H

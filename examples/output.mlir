@@ -9,4 +9,3 @@ module attributes {llvm.data_layout = ""} {
     llvm.return
   }
 }
-
