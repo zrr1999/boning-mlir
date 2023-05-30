@@ -1,8 +1,22 @@
 # Boning-mlir
 
-## 技术方案
-推荐 VSCode（支持mlir-lsp）
+## 使用方法
+### docker
+```sh
+docker run --name Boning-mlir -itd --restart unless-stopped -p 10001:22 -v ~/workspace/:/workspace/ zrr1999/boning-mlir:latest
+ssh -p 10001 zrr1999@localhost
+```
+### 构建项目
+```sh
+cd /workspace/boning-mlir
+mkdir build && cd build
+cmake -G Ninja ..
+    -DLLVM_ENABLE_ASSERTIONS=ON \
+    -DCMAKE_BUILD_TYPE=RELEASE
+ninja install
+```
 
+## 技术方案
 ### 报告
 计划采用 Typst，Typst 是使用 Rust 编写的新兴文档排版语言，可以很好的使用git管理源代码，
 从而可以提供良好的多人协作体验，同时在格式调整上较为方便，协作者 review 也比较方便。
@@ -25,7 +39,7 @@
 - 实现 PyTorch 前端支持
 - x86 CPU 后端方言（或利用 llvm ir）
 - 添加单元测试机制及补充 CI 机制
-- ViT算法优化
+- 量化、剪枝等机制的研究
 - 内存分配优化算法
 - 针对 Arm CPU（A53）和 GPU（Mali）的技术调研
 - 方案报告
