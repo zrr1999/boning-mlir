@@ -1,8 +1,6 @@
-# llvm/mlir
-#set(LLVM_ENABLE_PROJECTS "mlir;clang")
-#set(LLVM_ENABLE_ASSERTIONS ON)
-#add_subdirectory(third_party/llvm/llvm)
-#list(APPEND CMAKE_MODULE_PATH "third_party/llvm/llvm/cmake")
+# llvm/mlir set(LLVM_ENABLE_PROJECTS "mlir;clang") set(LLVM_ENABLE_ASSERTIONS
+# ON) add_subdirectory(third_party/llvm/llvm) list(APPEND CMAKE_MODULE_PATH
+# "third_party/llvm/llvm/cmake")
 
 find_package(MLIR REQUIRED CONFIG)
 
@@ -17,7 +15,7 @@ list(APPEND CMAKE_MODULE_PATH "${MLIR_CMAKE_DIR}")
 list(APPEND CMAKE_MODULE_PATH "${LLVM_CMAKE_DIR}")
 
 find_program(LLVM_TABLEGEN_EXE "llvm-tblgen" ${LLVM_TOOLS_BINARY_DIR}
-        NO_DEFAULT_PATH)
+             NO_DEFAULT_PATH)
 
 include(TableGen)
 include(AddLLVM)

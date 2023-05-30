@@ -11,7 +11,7 @@
 
 include "BoningTypes.td"
 include "mlir/Interfaces/InferTypeOpInterface.td"
-include "mlir/Interfaces/SideEffectInterfaces.td" 
+include "mlir/Interfaces/SideEffectInterfaces.td"
 
 // def Boning_TanhOp : Boning_Op<"tanh", [
 //     AllowsTypeRefinement,
