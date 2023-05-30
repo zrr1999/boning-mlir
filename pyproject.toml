@@ -1,0 +1,6 @@
+[tool.ruff]
+select = ["UP"]
+ignore = ["UP015", "E402"]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["E402"]

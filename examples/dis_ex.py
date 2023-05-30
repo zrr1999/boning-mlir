@@ -1,24 +1,17 @@
 from __future__ import annotations
+
 import ast
 import dis
-import sys
 import inspect
+import sys
 import types
+from collections.abc import Callable
+from copy import deepcopy
+from typing import (Any, Dict, Generic, List, Optional, Tuple, Type, TypeVar,
+                    Union)
+
 import rich
 from pydantic import BaseModel
-from typing import (
-    List,
-    Dict,
-    Any,
-    Union,
-    Optional,
-    Callable,
-    TypeVar,
-    Generic,
-    Type,
-    Tuple,
-)
-from copy import deepcopy
 
 
 class IRNode(BaseModel):
@@ -63,7 +56,7 @@ class IRGraph(BaseModel):
         source = ["def demo_fn({{args}}):"]
         for node in self.nodes:
             node.name
-            
+
 
 def fn(self, a, b):
     x = a + b
@@ -146,7 +139,7 @@ class InstructionTranslator:
         if value.name is None:
             value.name = inst.argval
             graph.add_nodes(value)
-    
+
 
 graph = IRGraph(nodes=[])
 name2node: dict[str, IRNode] = {}
