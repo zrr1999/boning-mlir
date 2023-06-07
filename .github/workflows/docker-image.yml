@@ -40,3 +40,4 @@ jobs:
         tags: |
           ${{ secrets.DOCKERHUB_USERNAME }}/boning-mlir:${{ github.ref_name }}
           ${{ secrets.DOCKERHUB_USERNAME }}/boning-mlir:latest
+          
