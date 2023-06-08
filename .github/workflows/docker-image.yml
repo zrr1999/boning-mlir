@@ -2,7 +2,7 @@ name: Docker Image Build and Push
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main, develop]
     paths:
       - 'Dockerfile'
   pull_request:
