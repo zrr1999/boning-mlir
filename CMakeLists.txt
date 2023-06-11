@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(boning LANGUAGES CXX C)
+project(boning-mlir LANGUAGES CXX C)
 
 if(POLICY CMP0068)
   cmake_policy(SET CMP0068 NEW)
@@ -21,20 +21,11 @@ endif()
 include(cmake/init.cmake)
 include(cmake/3rdparty.cmake)
 
-# option(LLVM_INCLUDE_TOOLS "Generate build targets for the LLVM tools." ON)
-# option(LLVM_BUILD_TOOLS "Build the LLVM tools. If OFF, just generate build
-# targets." ON)
-
-set(BONING_MIDEND_INCLUDE_DIR ${BONING_SOURCE_DIR}/midend/include/)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BONING_BINARY_DIR})
 
-set(BONING_EXAMPLES
-    OFF
-    CACHE BOOL "Build examples")
-set(BONING_ENABLE_OPENCV
-    OFF
-    CACHE BOOL "Enable OpenCV support.")
+set(BONING_EXAMPLES OFF CACHE BOOL "Build examples")
+set(BONING_ENABLE_OPENCV OFF CACHE BOOL "Enable OpenCV support.")
 
 # Generate libraries into `lib` of build directory.
 set(LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/lib)
