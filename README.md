@@ -12,7 +12,7 @@ ssh -p 10001 zrr1999@localhost
 
 #### 2. Run "git submodule update --init" to get the llvm project
 
-#### 3. Build: 
+#### 3. Build:
 3.1 Use shell script:
 
 One-step Build：
@@ -38,7 +38,7 @@ $ cmake -G Ninja -Bbuild \
 $ cd build
 $ ninja check-mlir
 $ ninja
-$ ninja install (optional) 
+$ ninja install (optional)
 ```
 Two-step Build
 
@@ -63,7 +63,7 @@ $ cmake -G Ninja .. \
     -DLLVM_ENABLE_ASSERTIONS=ON \
     -DCMAKE_BUILD_TYPE=RELEASE
 $ ninja
-$ ninja install (optional) 
+$ ninja install (optional)
 ```
 
 ## 技术方案

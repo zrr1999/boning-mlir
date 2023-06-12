@@ -21,11 +21,14 @@ endif()
 include(cmake/init.cmake)
 include(cmake/3rdparty.cmake)
 
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BONING_BINARY_DIR})
 
-set(BONING_EXAMPLES OFF CACHE BOOL "Build examples")
-set(BONING_ENABLE_OPENCV OFF CACHE BOOL "Enable OpenCV support.")
+set(BONING_EXAMPLES
+    OFF
+    CACHE BOOL "Build examples")
+set(BONING_ENABLE_OPENCV
+    OFF
+    CACHE BOOL "Enable OpenCV support.")
 
 # Generate libraries into `lib` of build directory.
 set(LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/lib)

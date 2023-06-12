@@ -1,7 +1,7 @@
 #!/bin/bash
 usage() {
   echo "Usage: $0 [-s|--step] [1|2]" 1>&2
-  exit 1 
+  exit 1
 }
 
 step=""
