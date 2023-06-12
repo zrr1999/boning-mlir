@@ -2,12 +2,14 @@ name: test build process
 
 on:
   push:
-    branches: [ main, develop]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop]
+    branches: [main]
 
 jobs:
   build:
+    strategy:
+      fail-fast: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
