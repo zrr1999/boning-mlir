@@ -2,5 +2,12 @@
 .vscode/
 localtools/
 build/
-.clangd
+__pypackages__/
 **/__pycache__/
+
+.clangd
+.pdm-python
+
+# TODO: add python and test
+python/
+test/
