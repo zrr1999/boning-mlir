@@ -8,9 +8,9 @@ RUN apt-get update \
 && rm -rf /var/lib/apt/lists/* \
 && brew install python@3.8 python@3.9 python@3.10 \
 && brew install typst \
-&& pip3.8 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu \
-&& pip3.8 install paddlepaddle==0.0.0 -f https://www.paddlepaddle.org.cn/whl/linux/cpu-mkl/develop.html \
-&& pip3.8 install pre-commit
+&& pip3.8 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu \
+&& pip3.8 install --no-cache-dir paddlepaddle==0.0.0 -f https://www.paddlepaddle.org.cn/whl/linux/cpu-mkl/develop.html \
+&& pip3.8 install --no-cache-dir pre-commit
 
 WORKDIR "/workspace"
 EXPOSE 22
