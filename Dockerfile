@@ -1,8 +1,11 @@
 FROM zrr1999/zrr-base:latest
 
 COPY . /boning-mlir
-RUN apt-get install -y cmake ninja-build gdb unzip \
-&& apt-get install -y dotnet-sdk-6.0  # cmake plugin for vscode \
+RUN apt-get update \
+&& apt-get install -y cmake ninja-build gdb unzip \
+&& apt-get install -y dotnet-sdk-6.0 \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* \
 && brew install python@3.8 python@3.9 python@3.10 \
 && brew install typst \
 && pip3.8 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu \
