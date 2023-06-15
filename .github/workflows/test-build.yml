@@ -28,4 +28,4 @@ jobs:
           path: llvm
           key: build-${{ steps.llvm-build-dir.outputs.commit }}
       - name: Test build
-        run: bash ./build.sh  llvm/build-${{ steps.llvm-build-dir.outputs.commit }}
+        run: bash ./build.sh llvm/build-${{ steps.llvm-build-dir.outputs.commit }}
