@@ -3,4 +3,17 @@ select = ["UP"]
 ignore = ["UP015", "E402"]
 
 [tool.ruff.per-file-ignores]
-"__init__.py" = ["E402"]
+"__init__.py" = ["F401"]
+
+[project]
+name = "boning-mlir"
+version = "0.1.0"
+description = ""
+dependencies = []
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"

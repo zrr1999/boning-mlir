@@ -2,15 +2,17 @@ name: Docker Image Build and Push
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
     paths:
       - 'Dockerfile'
   pull_request:
+    branches: [main]
     paths:
       - 'Dockerfile'
-
 jobs:
   build:
+    strategy:
+      fail-fast: false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

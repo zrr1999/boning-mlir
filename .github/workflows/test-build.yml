@@ -1,0 +1,31 @@
+name: test build process
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+      - name: Set up ninja
+        uses: seanmiddleditch/gha-setup-ninja@master
+      # - name: Prepare llvm build directory name
+      #   id: llvm-build-dir
+      #   run: |
+      #     echo "commit=$(git submodule status | awk '{print $1;}')" >> $GITHUB_OUTPUT
+      # - name: Cache llvm build directory
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: llvm
+      #     key: build-${{ steps.llvm-build-dir.outputs.commit }}
+      - name: Test build
+        run: bash ./build.sh -s 1
